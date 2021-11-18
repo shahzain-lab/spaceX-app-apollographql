@@ -736,18 +736,6 @@ export type TrunkCargo = {
   unpressurized_cargo?: Maybe<Scalars['Boolean']>;
 };
 
-export type HistoriesFlightQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HistoriesFlightQuery = { __typename?: 'Query', history?: Array<{ __typename?: 'History', id?: number | null | undefined, title?: string | null | undefined } | null | undefined> | null | undefined };
-
-export type HistoryFlightQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-export type HistoryFlightQuery = { __typename?: 'Query', history?: Array<{ __typename?: 'History', title?: string | null | undefined, details?: string | null | undefined, links?: { __typename?: 'HistoryLinks', article?: string | null | undefined, wikipedia?: string | null | undefined } | null | undefined } | null | undefined> | null | undefined };
-
 export type LaunchesQueryVariables = Exact<{
   itemsUpt?: Maybe<Scalars['Int']>;
 }>;
@@ -760,87 +748,24 @@ export type MissionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MissionsQuery = { __typename?: 'Query', missions?: Array<{ __typename?: 'Mission', mission_id?: string | null | undefined, description?: string | null | undefined, mission_name?: string | null | undefined, twitter?: string | null | undefined, website?: string | null | undefined } | null | undefined> | null | undefined };
 
+export type RocketFlightQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+export type RocketFlightQuery = { __typename?: 'Query', rocket?: { __typename?: 'Rocket', id?: number | null | undefined, rocket_name?: string | null | undefined, flickr_images?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, wikipedia?: string | null | undefined } | null | undefined };
+
+export type RocketsFlightQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RocketsFlightQuery = { __typename?: 'Query', rockets?: Array<{ __typename?: 'Rocket', id?: number | null | undefined, rocket_name?: string | null | undefined } | null | undefined> | null | undefined };
+
 export type ShipsDetailsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ShipsDetailsQuery = { __typename?: 'Query', ships?: Array<{ __typename?: 'Ship', image?: string | null | undefined, ship_name?: string | null | undefined, ship_id?: string | null | undefined, url?: string | null | undefined, year_built?: number | null | undefined, roles?: Array<string | null | undefined> | null | undefined } | null | undefined> | null | undefined };
 
 
-export const HistoriesFlightDocument = gql`
-    query historiesFlight {
-  history(limit: 10) {
-    id
-    title
-  }
-}
-    `;
-
-/**
- * __useHistoriesFlightQuery__
- *
- * To run a query within a React component, call `useHistoriesFlightQuery` and pass it any options that fit your needs.
- * When your component renders, `useHistoriesFlightQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useHistoriesFlightQuery({
- *   variables: {
- *   },
- * });
- */
-export function useHistoriesFlightQuery(baseOptions?: Apollo.QueryHookOptions<HistoriesFlightQuery, HistoriesFlightQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<HistoriesFlightQuery, HistoriesFlightQueryVariables>(HistoriesFlightDocument, options);
-      }
-export function useHistoriesFlightLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HistoriesFlightQuery, HistoriesFlightQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<HistoriesFlightQuery, HistoriesFlightQueryVariables>(HistoriesFlightDocument, options);
-        }
-export type HistoriesFlightQueryHookResult = ReturnType<typeof useHistoriesFlightQuery>;
-export type HistoriesFlightLazyQueryHookResult = ReturnType<typeof useHistoriesFlightLazyQuery>;
-export type HistoriesFlightQueryResult = Apollo.QueryResult<HistoriesFlightQuery, HistoriesFlightQueryVariables>;
-export const HistoryFlightDocument = gql`
-    query historyFlight($id: String!) {
-  history(id: $id) {
-    title
-    details
-    links {
-      article
-      wikipedia
-    }
-  }
-}
-    `;
-
-/**
- * __useHistoryFlightQuery__
- *
- * To run a query within a React component, call `useHistoryFlightQuery` and pass it any options that fit your needs.
- * When your component renders, `useHistoryFlightQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useHistoryFlightQuery({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useHistoryFlightQuery(baseOptions: Apollo.QueryHookOptions<HistoryFlightQuery, HistoryFlightQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<HistoryFlightQuery, HistoryFlightQueryVariables>(HistoryFlightDocument, options);
-      }
-export function useHistoryFlightLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HistoryFlightQuery, HistoryFlightQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<HistoryFlightQuery, HistoryFlightQueryVariables>(HistoryFlightDocument, options);
-        }
-export type HistoryFlightQueryHookResult = ReturnType<typeof useHistoryFlightQuery>;
-export type HistoryFlightLazyQueryHookResult = ReturnType<typeof useHistoryFlightLazyQuery>;
-export type HistoryFlightQueryResult = Apollo.QueryResult<HistoryFlightQuery, HistoryFlightQueryVariables>;
 export const LaunchesDocument = gql`
     query launches($itemsUpt: Int) {
   launches(limit: 10, offset: $itemsUpt) {
@@ -924,6 +849,80 @@ export function useMissionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<M
 export type MissionsQueryHookResult = ReturnType<typeof useMissionsQuery>;
 export type MissionsLazyQueryHookResult = ReturnType<typeof useMissionsLazyQuery>;
 export type MissionsQueryResult = Apollo.QueryResult<MissionsQuery, MissionsQueryVariables>;
+export const RocketFlightDocument = gql`
+    query rocketFlight($id: String!) {
+  rocket(id: $id) {
+    id
+    rocket_name
+    flickr_images
+    description
+    wikipedia
+  }
+}
+    `;
+
+/**
+ * __useRocketFlightQuery__
+ *
+ * To run a query within a React component, call `useRocketFlightQuery` and pass it any options that fit your needs.
+ * When your component renders, `useRocketFlightQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useRocketFlightQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useRocketFlightQuery(baseOptions: Apollo.QueryHookOptions<RocketFlightQuery, RocketFlightQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<RocketFlightQuery, RocketFlightQueryVariables>(RocketFlightDocument, options);
+      }
+export function useRocketFlightLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<RocketFlightQuery, RocketFlightQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<RocketFlightQuery, RocketFlightQueryVariables>(RocketFlightDocument, options);
+        }
+export type RocketFlightQueryHookResult = ReturnType<typeof useRocketFlightQuery>;
+export type RocketFlightLazyQueryHookResult = ReturnType<typeof useRocketFlightLazyQuery>;
+export type RocketFlightQueryResult = Apollo.QueryResult<RocketFlightQuery, RocketFlightQueryVariables>;
+export const RocketsFlightDocument = gql`
+    query rocketsFlight {
+  rockets(limit: 10) {
+    id
+    rocket_name
+  }
+}
+    `;
+
+/**
+ * __useRocketsFlightQuery__
+ *
+ * To run a query within a React component, call `useRocketsFlightQuery` and pass it any options that fit your needs.
+ * When your component renders, `useRocketsFlightQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useRocketsFlightQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useRocketsFlightQuery(baseOptions?: Apollo.QueryHookOptions<RocketsFlightQuery, RocketsFlightQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<RocketsFlightQuery, RocketsFlightQueryVariables>(RocketsFlightDocument, options);
+      }
+export function useRocketsFlightLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<RocketsFlightQuery, RocketsFlightQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<RocketsFlightQuery, RocketsFlightQueryVariables>(RocketsFlightDocument, options);
+        }
+export type RocketsFlightQueryHookResult = ReturnType<typeof useRocketsFlightQuery>;
+export type RocketsFlightLazyQueryHookResult = ReturnType<typeof useRocketsFlightLazyQuery>;
+export type RocketsFlightQueryResult = Apollo.QueryResult<RocketsFlightQuery, RocketsFlightQueryVariables>;
 export const ShipsDetailsDocument = gql`
     query shipsDetails {
   ships(limit: 5) {

@@ -7,7 +7,7 @@ import NotFound from '../Components/NotFound';
 
 const Routers = () => {
     return (
-        <div>
+        <div className="">
             <Routes>
                 <Route path="/" element={<HomeLayout />} />
                 <Route path="launches" element={<LaunchesLayout />} />

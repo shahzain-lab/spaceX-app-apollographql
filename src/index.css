@@ -7,3 +7,7 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
+.df {
+  background: rgba(1, 2, 8, 0.616);
+}

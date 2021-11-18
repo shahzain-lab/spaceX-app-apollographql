@@ -48,9 +48,10 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.3.0",
-    "@graphql-codegen/typescript": "2.4.0",
-    "@graphql-codegen/typescript-operations": "2.2.0",
-    "@graphql-codegen/typescript-react-apollo": "3.2.1",
+    "@graphql-codegen/typescript": "2.4.1",
+    "@graphql-codegen/typescript-operations": "2.2.1",
+    "@graphql-codegen/typescript-react-apollo": "3.2.2",
+    "@types/styled-components": "^5.1.15",
     "autoprefixer": "^9",
     "postcss": "^7",
     "postcss-cli": "^9.0.2",

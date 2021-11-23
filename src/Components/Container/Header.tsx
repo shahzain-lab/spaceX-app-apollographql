@@ -1,5 +1,5 @@
 import React from 'react'
-import HeaderLeft from './HeaderLeft'
+// import HeaderLeft from './HeaderLeft'
 
 const Header = () => {
     return (

@@ -2,9 +2,12 @@ import { gql } from '@apollo/client';
 
 export const GET_ROCKETS = gql`
  query rocketsFlight {
-  rockets(limit: 10){
-    id
+  rockets{
+    rocket_id
     rocket_name
+    flickr_images
+    description
+    wikipedia
   }
 }
 `;

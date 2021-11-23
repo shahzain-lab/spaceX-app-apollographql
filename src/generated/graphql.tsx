@@ -748,17 +748,10 @@ export type MissionsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type MissionsQuery = { __typename?: 'Query', missions?: Array<{ __typename?: 'Mission', mission_id?: string | null | undefined, description?: string | null | undefined, mission_name?: string | null | undefined, twitter?: string | null | undefined, website?: string | null | undefined } | null | undefined> | null | undefined };
 
-export type RocketFlightQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-export type RocketFlightQuery = { __typename?: 'Query', rocket?: { __typename?: 'Rocket', id?: number | null | undefined, rocket_name?: string | null | undefined, flickr_images?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, wikipedia?: string | null | undefined } | null | undefined };
-
 export type RocketsFlightQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type RocketsFlightQuery = { __typename?: 'Query', rockets?: Array<{ __typename?: 'Rocket', id?: number | null | undefined, rocket_name?: string | null | undefined } | null | undefined> | null | undefined };
+export type RocketsFlightQuery = { __typename?: 'Query', rockets?: Array<{ __typename?: 'Rocket', rocket_id?: string | null | undefined, rocket_name?: string | null | undefined, flickr_images?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, wikipedia?: string | null | undefined } | null | undefined> | null | undefined };
 
 export type ShipsDetailsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -849,50 +842,14 @@ export function useMissionsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<M
 export type MissionsQueryHookResult = ReturnType<typeof useMissionsQuery>;
 export type MissionsLazyQueryHookResult = ReturnType<typeof useMissionsLazyQuery>;
 export type MissionsQueryResult = Apollo.QueryResult<MissionsQuery, MissionsQueryVariables>;
-export const RocketFlightDocument = gql`
-    query rocketFlight($id: String!) {
-  rocket(id: $id) {
-    id
+export const RocketsFlightDocument = gql`
+    query rocketsFlight {
+  rockets {
+    rocket_id
     rocket_name
     flickr_images
     description
     wikipedia
-  }
-}
-    `;
-
-/**
- * __useRocketFlightQuery__
- *
- * To run a query within a React component, call `useRocketFlightQuery` and pass it any options that fit your needs.
- * When your component renders, `useRocketFlightQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useRocketFlightQuery({
- *   variables: {
- *      id: // value for 'id'
- *   },
- * });
- */
-export function useRocketFlightQuery(baseOptions: Apollo.QueryHookOptions<RocketFlightQuery, RocketFlightQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<RocketFlightQuery, RocketFlightQueryVariables>(RocketFlightDocument, options);
-      }
-export function useRocketFlightLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<RocketFlightQuery, RocketFlightQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<RocketFlightQuery, RocketFlightQueryVariables>(RocketFlightDocument, options);
-        }
-export type RocketFlightQueryHookResult = ReturnType<typeof useRocketFlightQuery>;
-export type RocketFlightLazyQueryHookResult = ReturnType<typeof useRocketFlightLazyQuery>;
-export type RocketFlightQueryResult = Apollo.QueryResult<RocketFlightQuery, RocketFlightQueryVariables>;
-export const RocketsFlightDocument = gql`
-    query rocketsFlight {
-  rockets(limit: 10) {
-    id
-    rocket_name
   }
 }
     `;

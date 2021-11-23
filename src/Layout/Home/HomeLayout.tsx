@@ -1,13 +1,15 @@
 import React from 'react'
 import Header from '../../Components/Container/Header';
-import HistoryList from '../../Components/Missions/Missions';
+import Missions from '../../Components/Missions/Missions';
+import Rockets from '../../Components/Rockets/Rockets';
 
 const Home = () => {
     return (
         <div>
             <Header />
             <div className="bg-gray-800 w-full min-h-screen">
-                <HistoryList />
+                <Missions />
+                <Rockets />
             </div>
         </div>
     )

@@ -5,7 +5,7 @@ import Routers from '../Routes/Routers';
 
 function App() {
   return (
-    <div className="">
+    <div>
       <NavBar />
       <Routers />
       <Footer />

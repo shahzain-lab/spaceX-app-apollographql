@@ -1,9 +1,0 @@
-.list li {
-  outline: none;
-  border-color: transparent;
-  transition: 0.3s;
-}
-
-.list li:hover {
-  border-left: 2px solid #7e22ce;
-}

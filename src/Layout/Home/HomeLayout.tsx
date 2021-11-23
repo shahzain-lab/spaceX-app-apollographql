@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../Components/Container/Header';
-import HistoryList from '../../Components/History/Rockets';
+import HistoryList from '../../Components/Missions/Missions';
 
 const Home = () => {
     return (

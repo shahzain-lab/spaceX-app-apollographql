@@ -5,6 +5,7 @@ query launches($itemsUpt: Int) {
     launches(limit: 10, offset: $itemsUpt) {
     mission_id
     mission_name
+    flight_number
     launch_success
     launch_year
     details

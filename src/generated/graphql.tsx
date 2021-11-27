@@ -741,7 +741,7 @@ export type LaunchesQueryVariables = Exact<{
 }>;
 
 
-export type LaunchesQuery = { __typename?: 'Query', launches?: Array<{ __typename?: 'Launch', mission_id?: Array<string | null | undefined> | null | undefined, mission_name?: string | null | undefined, launch_success?: boolean | null | undefined, launch_year?: number | null | undefined, details?: string | null | undefined, links?: { __typename?: 'LaunchLinks', article_link?: string | null | undefined, video_link?: string | null | undefined, wikipedia?: string | null | undefined, flickr_images?: Array<string | null | undefined> | null | undefined } | null | undefined } | null | undefined> | null | undefined };
+export type LaunchesQuery = { __typename?: 'Query', launches?: Array<{ __typename?: 'Launch', mission_id?: Array<string | null | undefined> | null | undefined, mission_name?: string | null | undefined, flight_number?: number | null | undefined, launch_success?: boolean | null | undefined, launch_year?: number | null | undefined, details?: string | null | undefined, links?: { __typename?: 'LaunchLinks', article_link?: string | null | undefined, video_link?: string | null | undefined, wikipedia?: string | null | undefined, flickr_images?: Array<string | null | undefined> | null | undefined } | null | undefined } | null | undefined> | null | undefined };
 
 export type MissionsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -764,6 +764,7 @@ export const LaunchesDocument = gql`
   launches(limit: 10, offset: $itemsUpt) {
     mission_id
     mission_name
+    flight_number
     launch_success
     launch_year
     details

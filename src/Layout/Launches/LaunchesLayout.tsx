@@ -3,7 +3,7 @@ import Launches from '../../Components/Launches/Launches'
 
 const LaunchesLayout = () => {
     return (
-        <div className="w-full pt-60 h-screen bg-rocket-image backdrop-opacity-2 bg-fixed">
+        <div className="w-full pt-60 min-h-screen bg-rocket-image backdrop-opacity-2 bg-fixed">
             <Launches />
         </div>
     )

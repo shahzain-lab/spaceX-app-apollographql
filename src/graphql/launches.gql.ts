@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_LAUNCHES = gql`
 query launches($itemsUpt: Int) {
-    launches(limit: 10, offset: $itemsUpt) {
+    launches(limit: 5, offset: $itemsUpt) {
     mission_id
     mission_name
     flight_number

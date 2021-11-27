@@ -761,7 +761,7 @@ export type ShipsDetailsQuery = { __typename?: 'Query', ships?: Array<{ __typena
 
 export const LaunchesDocument = gql`
     query launches($itemsUpt: Int) {
-  launches(limit: 10, offset: $itemsUpt) {
+  launches(limit: 5, offset: $itemsUpt) {
     mission_id
     mission_name
     flight_number

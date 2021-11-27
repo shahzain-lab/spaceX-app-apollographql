@@ -5,7 +5,6 @@ import App from './Main/App';
 // apollo
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { offsetLimitPagination } from '@apollo/client/utilities';
 
 const client = new ApolloClient({
   uri: 'http://spacexdata.herokuapp.com/graphql',
